@@ -15,11 +15,10 @@ public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("User Agent:" + request.getHeader("User-Agent"));
-        public String getParameter(String Username, String Password)
-        System.out.println(request.getParameter("Usename"));
-        System.out.println(request.getParameter("Password"));
+        request.getParameter("Usename");
+        request.getParameter("Password");
 
-        if (Usename == "gino" and Password == "pasquale"){
+        if (Usename.equals ("gino") and Password.equals("pasquale")){
             response.setContentType("text/html");
             PrintWriter oggetto = response.getWriter();
             oggetto.println("<html><body>");
@@ -31,6 +30,20 @@ public class HelloServlet extends HttpServlet {
             response.sendRedirect("/Errore");
         }
 
+
+    }
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        System.out.println("Host: " + request.getHeader("Host"));
+        System.out.println("Accept-Encoding: " + request.getHeader("Accept-Encoding"));
+        System.out.println("If-None-Match: " + request.getHeader("If-None-Match"));
+
+        response.setContentType("text/plain");
+
+        PrintWriter oggetto = response.getWriter();
+
+        oggetto.println("Buongiorno Galvani!");
 
     }
 
