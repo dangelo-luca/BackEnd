@@ -7,7 +7,8 @@ import jakarta.servlet.annotation.*;
 public class ErroreServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String attributoSalvato = (String) session.getAttribute("Errore");
+        HttpSession session = request.getSession(true);
+        String attributoSalvato = (String) session.getAttribute("error");
         System.out.println(attributoSalvato)
         response.setContentType("text/html");
         PrintWriter oggetto = response.getWriter();
